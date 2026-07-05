@@ -576,8 +576,9 @@ For initial evaluation of skills, use Human-as-Judge.
 
 After writing a new skill body, run the description optimization loop before marking it ready:
 
-1. Verify the description against quality criteria: contains "Golang", has "Use when"/"Apply when" trigger clause with specific scenarios, no broad anti-patterns (`whenever writing Go code`, `Essential for ANY`, `proactively`), FQN cross-refs for competing skills (`samber/cc-skills-golang@<skill>`), library skills use `Apply when the codebase imports github.com/...` pattern. Description must stay ≤ 1,000 characters.
-2. Follow the [After updating a skill](#after-updating-a-skill) checklist.
+1. Check whether any existing skill should reference the new skill: dispatch parallel sub-agents (via the Agent tool, split by scope — e.g. one per group of `skills/*/SKILL.md`) to read the other skills in full and judge whether the new skill's topic, adjacent concepts, or libraries overlap with what they already cover. Where an existing skill touches the same ground, add a `→ See samber/cc-skills-golang@<new-skill>` cross-reference (in its description and/or body) instead of leaving the two skills to drift apart — see [Atomic skills and deduplication](#atomic-skills-and-deduplication). Bump the `metadata.version` of every skill file edited this way.
+2. Verify the description against quality criteria: contains "Golang", has "Use when"/"Apply when" trigger clause with specific scenarios, no broad anti-patterns (`whenever writing Go code`, `Essential for ANY`, `proactively`), FQN cross-refs for competing skills (`samber/cc-skills-golang@<skill>`), library skills use `Apply when the codebase imports github.com/...` pattern. Description must stay ≤ 1,000 characters.
+3. Follow the [After updating a skill](#after-updating-a-skill) checklist.
 
 ### Checking for outdated skills
 
